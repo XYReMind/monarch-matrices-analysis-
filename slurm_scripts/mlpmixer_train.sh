@@ -1,0 +1,2 @@
+sbatch slurm_scripts/train_monarch.sh mlpmixer
+sbatch slurm_scripts/train_base.sh mlpmixer

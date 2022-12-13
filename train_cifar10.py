@@ -23,6 +23,7 @@ from randomaug import RandAugment
 from models.vit import ViT
 from models.convmixer import ConvMixer
 
+print('Train base')
 # parsers
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=1e-4, type=float, help='learning rate') # resnets.. 1e-3, Vit..1e-4
@@ -39,6 +40,7 @@ parser.add_argument('--n_epochs', type=int, default='200')
 parser.add_argument('--patch', default='4', type=int, help="patch for ViT")
 parser.add_argument('--dimhead', default="512", type=int)
 parser.add_argument('--convkernel', default='8', type=int, help="parameter for convmixer")
+parser.add_argument('--wandbentity', default='xl3914', help='wandb entity name')
 
 args = parser.parse_args()
 
@@ -49,7 +51,7 @@ if usewandb:
     watermark = "{}_lr{}".format(args.net, args.lr)
     wandb.init(project="cifar10-challange",
             name=watermark,
-            entity="xl3914")
+            entity=args.wandbentity)
     wandb.config.update(args)
 
 bs = int(args.bs)

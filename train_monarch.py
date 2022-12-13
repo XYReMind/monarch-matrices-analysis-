@@ -23,7 +23,7 @@ from models.vit import ViT
 from models.convmixer import ConvMixer
 #from monarch_linear import MonarchLinear
 
-
+print('Train monarch')
 
 # parsers
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
@@ -41,6 +41,7 @@ parser.add_argument('--n_epochs', type=int, default='200')
 parser.add_argument('--patch', default='4', type=int, help="patch for ViT")
 parser.add_argument('--dimhead', default="512", type=int)
 parser.add_argument('--convkernel', default='8', type=int, help="parameter for convmixer")
+parser.add_argument('--wandbentity', default='xl3914', help='wandb entity name')
 
 args = parser.parse_args()
 
@@ -48,10 +49,10 @@ args = parser.parse_args()
 usewandb = ~args.nowandb
 if usewandb:
     import wandb
-    watermark = "{}_lr{}".format(args.net, args.lr)
+    watermark = "{}_lr{}_monarch".format(args.net, args.lr)
     wandb.init(project="cifar10-challange-monarch",
             name=watermark,
-            entity="xl3914")
+            entity=args.wandbentity,)
     wandb.config.update(args)
 
 bs = int(args.bs)
@@ -116,7 +117,7 @@ elif args.net=="convmixer":
     # from paper, accuracy >96%. you can tune the depth and dim to scale accuracy and speed.
     net = ConvMixer(256, 16, kernel_size=args.convkernel, patch_size=1, n_classes=10)
 elif args.net=="mlpmixer":
-    from models.mlpmixer import MLPMixer
+    from models.monarch_mlpmixer import MLPMixer
     net = MLPMixer(
     image_size = 32,
     channels = 3,
@@ -163,6 +164,7 @@ elif args.net=="simplevit":
     mlp_dim = 512
 )
 elif args.net=="vit":
+    from models.monarch_vit import ViT
     # ViT for cifar10
     net = ViT(
     image_size = size,
