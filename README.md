@@ -28,8 +28,8 @@ V100 GPU is used for this project. Mem is set to 8GB.
 | Models          | System        | Hardware |Number of GPUS |Dataset      |Metrics                                       |
 | ----------------|:-------------:|---------:|--------------:|------------:|---------------------------------------------:|
 | ViT-16-S        | NYU HPC Greene| V100     | 4             | CIFAR-10    |Validation/Test Accuracy+Efficiency: wall-time|
-| ViT-16-B        | NYU HPC Greene| V100     | 1             | CIFAR-10    |Validation/Test Accuracy+Efficiency: wall-time|
-| MLP-mixer       | NYU HPC Greene| V100     | 1             | CIFAR-10    |Validation/Test Accuracy+Efficiency: wall-time|
+| ViT-16-B        | NYU HPC Greene| V100     | 4             | CIFAR-10    |Validation/Test Accuracy+Efficiency: wall-time|
+| MLP-mixer       | NYU HPC Greene| V100     | 4             | CIFAR-10    |Validation/Test Accuracy+Efficiency: wall-time|
 
 ## run  
 
