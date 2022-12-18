@@ -49,3 +49,6 @@ V100 GPU is used for this project. Mem is set to 8GB.
 | MLP-mixer-Monarch| 75.4%                    | -                  | 20.9M        | 5.0G        |
 
 
+Reference:
+
+[1]Dao et al, Monarch: Expressive Structured Matrices for Efficient and Accurate Training, ICML 2022, https://arxiv.org/pdf/2204.00595.pdf.
