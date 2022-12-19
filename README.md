@@ -1,4 +1,4 @@
-# 9143-HPML-Project 
+# Final Project 
 
 Project Title: A Performance Analysis for Monarch Matrices.
 
@@ -47,6 +47,19 @@ V100 GPU is used for this project. Mem is set to 8GB.
 | ViT-16-B-Monarch | 74.69%                   | 1.18 (47.77)       | 33.0M        | 5.91G       |
 | MLP-mixer        | 78.9%                    | - (48.85)          | 59.9M        | 12.6G       |
 | MLP-mixer-Monarch| 75.4%                    | 1.19 (41.08)       | 20.9M        | 5.0G        |
+
+Validation loss of ViT-S:
+
+![Alt text](/img/vit.png?raw=true "vit")
+
+Validation loss of ViT-S-Monarch:
+
+![Alt text](/img/vit-monarch.png?raw=true "vit monarch")
+
+
+TTA@75:
+
+![Alt text](/img/tta.png?raw=true "tta")
 
 
 Reference:
